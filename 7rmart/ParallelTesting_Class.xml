@@ -6,7 +6,7 @@
     <classes>
      
       <class name="testDataPackage.LogoutTest"/>
-      <class name="testDataPackage.ManageContactTest"/>
+      <class name="testDataPackage.ManageCategoryTest"/>
     </classes>
   </test> <!-- Test -->
    

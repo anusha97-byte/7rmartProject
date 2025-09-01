@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageContactPage 
 {
 	WebDriver driver;
@@ -21,7 +23,7 @@ public class ManageContactPage
 	@FindBy(xpath="//textarea[@id='content' and @name='address']")WebElement address;
 	@FindBy(xpath="//textarea[@id='content' and @name='del_time']")WebElement deliverytime;
 	@FindBy(xpath="//input[@id='del_limit']")WebElement chargelimit;
-	@FindBy(xpath="//button[@type='submit']")WebElement updatebutton;
+	@FindBy(xpath="//button[@name='Update' and @ type='submit']")WebElement updatebutton;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
 	public void clickMoreInfo()
 	{
@@ -58,9 +60,13 @@ public class ManageContactPage
 	}
 	public void clickUpdateButton()
 	{
-		//updatebutton.click();
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();",updatebutton);
+		js.executeScript("window.scrollBy(0,150)");
+		//updatebutton.click();
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();",updatebutton);
+		//PageUtility pageutility=new PageUtility();
+		//pageutility.click(driver,updatebutton);
 	}
 	public boolean isAlertDisplayed()
 	{

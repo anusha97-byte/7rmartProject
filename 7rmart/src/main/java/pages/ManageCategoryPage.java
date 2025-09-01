@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constant.Constant;
+import utilities.FileUploadUtility;
+import utilities.PageUtility;
+
 public class ManageCategoryPage
 {
 	WebDriver driver;
@@ -41,18 +45,29 @@ public class ManageCategoryPage
 	public void clickRadioButtonNo()
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();",radiono);
+		js.executeScript("window.scrollBy(0,150)");
+		//radiono.click();
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();",radiono);
+		//PageUtility pageutility=new PageUtility();
+		//pageutility.click(driver, radiono);
 	}
 	public void clickSaveButton()
 	{
-		//save.click();
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();",save);
+		js.executeScript("window.scrollBy(0,150)");
+		//save.click();
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();",save);
+		//PageUtility pageutility=new PageUtility();
+		//pageutility.click(driver,save);
 	}
 	public void chooseTheFile()
 	{
 		
-		choosefile.sendKeys("C:\\Users\\acer\\OneDrive\\Desktop\\pexels-valeriya-842571.jpg");
+		//choosefile.sendKeys("C:\\Users\\acer\\OneDrive\\Desktop\\pexels-valeriya-842571.jpg");
+	FileUploadUtility fileuplaod=new FileUploadUtility();
+	fileuplaod.fileUploadUsingSendkeys(choosefile,Constant.FOODIMAGEFILE);
 	}
 	public void clickUpdateIcon()
 	{
@@ -60,9 +75,13 @@ public class ManageCategoryPage
 	}
 	public void clickUpdateButton()
 	{
-		//updatebutton.click();
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();",updatebutton);
+		js.executeScript("window.scrollBy(0,150)");
+		//updatebutton.click();
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();",updatebutton);
+		//PageUtility pageutility=new PageUtility();
+		//pageutility.click(driver,updatebutton);
 	}
 	public boolean isErrorPageDisplayed()
 	{

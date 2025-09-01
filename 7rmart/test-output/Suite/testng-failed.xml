@@ -5,13 +5,13 @@
     <listener class-name="generateReport.Listeners"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="firefox"/>
     <classes>
       <class name="testDataPackage.AdminUserTest">
         <methods>
-          <include name="quitAndClose"/>
-          <include name="addAdminUserInformations"/>
           <include name="browserInitialization"/>
+          <include name="updateAdminUserInformation"/>
+          <include name="browserQuit"/>
         </methods>
       </class> <!-- testDataPackage.AdminUserTest -->
     </classes>

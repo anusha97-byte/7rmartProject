@@ -7,9 +7,9 @@
   <test thread-count="5" name="Test">
   <parameter name="browser" value="chrome"></parameter>
     <classes>
+      
       <class name="testDataPackage.ManageNewsTest"/>
-      <class name="testDataPackage.AdminUserTest">
-      </class>
+      <class name="testDataPackage.AdminUserTest"/>
       <class name="testDataPackage.LoginTest">
       <methods>
       <include name="loginWithValidCredentials"></include>

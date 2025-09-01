@@ -45,6 +45,7 @@ public class ManageCategoryTest extends Base
 		managecategorypage.clickMoreInfo();
 		managecategorypage.clickUpdateIcon();
 		managecategorypage.enterTheCategory(category1);
+		managecategorypage.chooseTheFile();
 		managecategorypage.clickUpdateButton();
 		boolean alertdisplyed=managecategorypage.isAlertDisplayed();
 		Assert.assertTrue(alertdisplyed,"After update the category alert is not displayed");

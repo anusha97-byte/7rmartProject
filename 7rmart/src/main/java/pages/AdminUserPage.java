@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 
 public class AdminUserPage
@@ -25,7 +26,7 @@ public class AdminUserPage
 	@FindBy(xpath="//select[@id='user_type']")WebElement usertypeselect;
 	@FindBy(xpath="//button[@type='submit' and @name='Create']")WebElement savebutton;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
-	@FindBy(xpath="//a[contains(@href,'edit=15243&page_ad=1')]")WebElement updateicon;
+	@FindBy(xpath="(//a[contains(@href,'edit=15269&page_ad=1')])[1]")WebElement updateicon;
 	@FindBy(xpath="//button[@name='Update' and @type='submit']")WebElement updatebutton;
 	public void clickMoreInfo()
 	{
@@ -47,7 +48,8 @@ public class AdminUserPage
 	}
 	public void selectUserType()
 	{
-		
+		WaitUtility wait=new WaitUtility();
+		wait.waitForElementToBeClickable(driver, usertypeselect);
 		usertypeselect.click();
 		PageUtility pageutility=new PageUtility();
 		pageutility.selectByVisibleText(usertypeselect,"Admin");
@@ -59,12 +61,20 @@ public class AdminUserPage
 	}
 	public void clickUpdateIcon()
 	{
-		//updateicon.click();
+		WaitUtility wait=new WaitUtility();
+		wait.waitForElementToBeClickable(driver, updateicon);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click()", updateicon);
+		js.executeScript("window.scrollBy(0,150)");
+		//updateicon.click();
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click()", updateicon);
+		//PageUtility pageutility=new PageUtility();
+		//pageutility.click(driver,updateicon);
 	}
 	public void clickUpdateButton()
 	{
+		WaitUtility wait=new WaitUtility();
+		wait.waitForElementToBeClickable(driver, updatebutton);
 		updatebutton.click();
 	}
 	public boolean isAlertDisplayed()
