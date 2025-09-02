@@ -18,7 +18,7 @@ public class ManageCategoryPage
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="(//a[@class='small-box-footer'])[9]")WebElement moreinfo;
+	//@FindBy(xpath="(//a[@class='small-box-footer'])[9]")WebElement moreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newbutton;
 	@FindBy(xpath="//input[@id='category']")WebElement category;
 	@FindBy(xpath="//input[@type='file']")WebElement choosefile;
@@ -29,20 +29,22 @@ public class ManageCategoryPage
 	@FindBy(xpath="//button[@name='update']")WebElement updatebutton;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
 	
-	public void clickMoreInfo()
+	/*public void manageCategoryMoreInfo()
 	{
 		moreinfo.click();
-	}
-	public void clickNewButton()
+	}*/
+	public ManageCategoryPage clickNewButton()
 	{
 		newbutton.click();
+		return this;
 	}
-	public void enterTheCategory(String category1)
+	public ManageCategoryPage enterTheCategory(String category1)
 	{
 		category.clear();
 		category.sendKeys(category1);
+		return this;
 	}
-	public void clickRadioButtonNo()
+	public ManageCategoryPage clickRadioButtonNo()
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,150)");
@@ -51,8 +53,9 @@ public class ManageCategoryPage
 		jse.executeScript("arguments[0].click();",radiono);
 		//PageUtility pageutility=new PageUtility();
 		//pageutility.click(driver, radiono);
+		return this;
 	}
-	public void clickSaveButton()
+	public ManageCategoryPage clickSaveButton()
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,150)");
@@ -61,19 +64,22 @@ public class ManageCategoryPage
 		jse.executeScript("arguments[0].click();",save);
 		//PageUtility pageutility=new PageUtility();
 		//pageutility.click(driver,save);
+		return this;
 	}
-	public void chooseTheFile()
+	public ManageCategoryPage chooseTheFile()
 	{
 		
 		//choosefile.sendKeys("C:\\Users\\acer\\OneDrive\\Desktop\\pexels-valeriya-842571.jpg");
 	FileUploadUtility fileuplaod=new FileUploadUtility();
 	fileuplaod.fileUploadUsingSendkeys(choosefile,Constant.FOODIMAGEFILE);
+	return this;
 	}
-	public void clickUpdateIcon()
+	public ManageCategoryPage clickUpdateIcon()
 	{
 		updateicon.click();
+		return this;
 	}
-	public void clickUpdateButton()
+	public ManageCategoryPage clickUpdateButton()
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,150)");
@@ -82,6 +88,7 @@ public class ManageCategoryPage
 		jse.executeScript("arguments[0].click();",updatebutton);
 		//PageUtility pageutility=new PageUtility();
 		//pageutility.click(driver,updatebutton);
+		return this;
 	}
 	public boolean isErrorPageDisplayed()
 	{

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManageFooterTextPage
 {
-	@FindBy(xpath="(//a[@class=\"small-box-footer\"])[8]")WebElement moreinfo;
+	//@FindBy(xpath="(//a[@class=\"small-box-footer\"])[8]")WebElement moreinfo;
 	@FindBy(xpath="//a[contains(@href,'Footertext/edit?edit=1')]")WebElement updateicon;
 	@FindBy(xpath="//textarea[@id='content']")WebElement address;
 	@FindBy(xpath="//input[@id='email']")WebElement email;
@@ -20,32 +20,37 @@ public class ManageFooterTextPage
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	public void clickMoreInfo()
+	/*public void manageFooterMoreInfo()
 	{
 		moreinfo.click();
-	}
-	public void clickUpdateIcon()
+	}*/
+	public ManageFooterTextPage clickUpdateIcon()
 	{
 		updateicon.click();
+		return this;
 	}
-	public void enterAddress(String address2)
+	public ManageFooterTextPage enterAddress(String address2)
 	{
 		address.clear();
 		address.sendKeys(address2);
+		return this;
 	}
-	public void enterEmail(String email2)
+	public ManageFooterTextPage enterEmail(String email2)
 	{
 		email.clear();
 		email.sendKeys(email2);
+		return this;
 	}
-	public void enterPhonenumber(String phone)
+	public ManageFooterTextPage enterPhonenumber(String phone)
 	{
 		phonenumber.clear();
 		phonenumber.sendKeys(phone);
+		return this;
 	}
-	public void clickUpdateButton()
+	public ManageFooterTextPage clickUpdateButton()
 	{
 		updatebutton.click();
+		return this;
 	}
 	public boolean isAlertdisplayed()
 	{

@@ -4,13 +4,16 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.LogoutPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base
 {
+	ManageNewsPage managenewspage;
+	LogoutPage logoutpage;
 	@Test(description="To add a new news ",groups = {"regression"})
-	public void manageNews() throws IOException
+	public void verify_UserIs_AbleTo_ManageTheNews() throws IOException
 	{
 		/*String news="New news is added";
 		String user="admin";
@@ -19,19 +22,19 @@ public class ManageNewsTest extends Base
 		String pass=ExcelUtility.getStringData(1,1,"LoginPage");
 		String news=ExcelUtility.getStringData(1,0,"ManageNews");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUsername(user);
-		loginpage.enterPassword(pass);
-		loginpage.clickSigninButton();
-		ManageNewsPage managenews=new ManageNewsPage(driver);
-		managenews.clickMoreInfo();
-		managenews.clickNewButton();
-		managenews.enterTheNews(news);
-		managenews.clickSaveButton();
-		boolean alertdisplayed=managenews.isAlertDisplayed();
+		loginpage.enterUsername(user).enterPassword(pass);
+		//loginpage.enterPassword(pass);
+		logoutpage=loginpage.clickSigninButton();
+		//ManageNewsPage managenews=new ManageNewsPage(driver);
+		managenewspage=logoutpage.manageNewsMoreInfo();
+		managenewspage.clickNewButton().enterTheNews(news).clickSaveButton();
+		//managenewspage.enterTheNews(news);
+		//managenews.clickSaveButton();
+		boolean alertdisplayed=managenewspage.isAlertDisplayed();
 		Assert.assertTrue(alertdisplayed,"After saving new news alert is not displayed");
 	}
 	@Test(description="To update a news")
-	public void newsUpdate() throws IOException
+	public void verify_UserIs_AbleTo_UpdateTheNews() throws IOException
 	{
 		/*String news="This is the updated news";
 		String user="admin";
@@ -40,14 +43,14 @@ public class ManageNewsTest extends Base
 		String pass=ExcelUtility.getStringData(1,1,"LoginPage");
 		String news=ExcelUtility.getStringData(1,1,"ManageNews");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUsername(user);
-		loginpage.enterPassword(pass);
-		loginpage.clickSigninButton();
-		ManageNewsPage managenewspage=new ManageNewsPage(driver);
-		managenewspage.clickMoreInfo();
-		managenewspage.clickUpdateButton();
-		managenewspage.enterUpdatedNews(news);
-		managenewspage.clickTheUpdateButton();
+		loginpage.enterUsername(user).enterPassword(pass);
+		//loginpage.enterPassword(pass);
+		logoutpage=loginpage.clickSigninButton();
+		//ManageNewsPage managenewspage=new ManageNewsPage(driver);
+		managenewspage=logoutpage.manageNewsMoreInfo();
+		managenewspage.clickUpdateButton().enterUpdatedNews(news).clickTheUpdateButton();
+		//managenewspage.enterUpdatedNews(news);
+		//managenewspage.clickTheUpdateButton();
 		boolean alertdisplayed=managenewspage.isAlertDisplayed();
 		Assert.assertTrue(alertdisplayed,"After updating news alert is not displayed");
 	}

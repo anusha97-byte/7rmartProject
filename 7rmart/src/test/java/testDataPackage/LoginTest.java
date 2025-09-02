@@ -9,7 +9,7 @@ import utilities.ExcelUtility;
 public class LoginTest extends Base
 {
 	@Test(priority=1,description="Login with Valid username and password")
-	public void loginWithValidCredentials() throws IOException
+	public void Verify_UserIs_AbleTo_LoginWithValidCredentials() throws IOException
 	{
 		String user=ExcelUtility.getStringData(1,0,"LoginPage");
 		String pass=ExcelUtility.getStringData(1,1,"LoginPage");
@@ -21,7 +21,7 @@ public class LoginTest extends Base
 		Assert.assertTrue(isdashboarddisplayed,"After entering valid username and password home page is not displayed");
 	}
 	@Test(priority=2,description="Login with invalid credentials")
-	public void loginWithInvalidCredentials() throws IOException
+	public void verify_UserIs_AbleTo_LoginWithInvalidCredentials() throws IOException
 	{
 		
 		String user=ExcelUtility.getStringData(2,0,"LoginPage");
@@ -34,7 +34,7 @@ public class LoginTest extends Base
 		Assert.assertTrue(isAlertMessageDisplayed,"After entering ivalid credentials the home page is displayed");
 	}
 	@Test(priority=3, description="Login with Valid username and invalid password")
-	public void loginWithUsernameValid() throws IOException
+	public void verify_UserIs_AbleTo_loginWithUsernameValidAndPasswordInvalid() throws IOException
 	{
 		
 		String user=ExcelUtility.getStringData(3,0,"LoginPage");
@@ -47,7 +47,7 @@ public class LoginTest extends Base
 		Assert.assertTrue(isAlertMessageDisplayed,"After entering valid username and invalid password home page is displayed");
 	}
 	@Test(priority=4,description="Login with valid password and invalid username")
-	public void loginWithPasswordValid() throws IOException
+	public void verify_UserIs_AbleTo_LoginWithPasswordValidAndUsernameInvalid() throws IOException
 	{
 		
 		String user=ExcelUtility.getStringData(4,0,"LoginPage");

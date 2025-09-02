@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManageNewsPage 
 {
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement moreinfo;
+	//@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement moreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newbutton;
 	@FindBy(xpath="//textarea[@placeholder='Enter the news']")WebElement newsText;
 	@FindBy(xpath="//button[@type='submit']")WebElement savebutton;
@@ -21,34 +21,40 @@ public class ManageNewsPage
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	public void clickMoreInfo()
+	/*public void manageNewsMoreInfo()
 	{
 		moreinfo.click();
-	}
-	public void clickNewButton() 
+	}*/
+	public ManageNewsPage clickNewButton() 
 	{
 		newbutton.click();
+		return this;
 	}
-	public void enterTheNews(String news)
+	public ManageNewsPage enterTheNews(String news)
 	{
 		newsText.sendKeys(news);
+		return this;
 	}
-	public void clickSaveButton()
+	public ManageNewsPage clickSaveButton()
 	{
 		savebutton.click();
+		return this;
 	}
-	public void clickUpdateButton()
+	public ManageNewsPage clickUpdateButton()
 	{
 		update.click();
+		return this;
 	}
-	public void enterUpdatedNews(String news)
+	public ManageNewsPage enterUpdatedNews(String news)
 	{
 		updatednews.clear();
 		updatednews.sendKeys(news);
+		return this;
 	}
-	public void clickTheUpdateButton()
+	public ManageNewsPage clickTheUpdateButton()
 	{
 		updatebutton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed()
 	{

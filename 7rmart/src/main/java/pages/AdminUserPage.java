@@ -19,7 +19,7 @@ public class AdminUserPage
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement moreinfo;
+	//@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement moreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newbutton;
 	@FindBy(xpath="//input[@id='username']")WebElement usernametext;
 	@FindBy(xpath="//input[@id='password']")WebElement passwordtext;
@@ -28,38 +28,43 @@ public class AdminUserPage
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
 	@FindBy(xpath="(//a[contains(@href,'edit=15269&page_ad=1')])[1]")WebElement updateicon;
 	@FindBy(xpath="//button[@name='Update' and @type='submit']")WebElement updatebutton;
-	public void clickMoreInfo()
+	/*public void adminUserMoreInfo()
 	{
 		moreinfo.click();
-	}
-	public void clickNewButton()
+	}*/
+	public AdminUserPage clickNewButton()
 	{
 		newbutton.click();
+		return this;
 	}
-	public void enterUsername(String username)
+	public AdminUserPage enterUsername(String username)
 	{
 		usernametext.clear();
 		usernametext.sendKeys(username);
+		return this;
 	}
-	public void enterPassword(String password)
+	public AdminUserPage enterPassword(String password)
 	{
 		passwordtext.clear();
 		passwordtext.sendKeys(password);
+		return this;
 	}
-	public void selectUserType()
+	public AdminUserPage selectUserType()
 	{
 		WaitUtility wait=new WaitUtility();
 		wait.waitForElementToBeClickable(driver, usertypeselect);
 		usertypeselect.click();
 		PageUtility pageutility=new PageUtility();
 		pageutility.selectByVisibleText(usertypeselect,"Admin");
+		return this;
 		
 	}
-	public void clickSaveButton()
+	public AdminUserPage clickSaveButton()
 	{
 		savebutton.click();
+		return this;
 	}
-	public void clickUpdateIcon()
+	public AdminUserPage clickUpdateIcon()
 	{
 		WaitUtility wait=new WaitUtility();
 		wait.waitForElementToBeClickable(driver, updateicon);
@@ -70,12 +75,14 @@ public class AdminUserPage
 		jse.executeScript("arguments[0].click()", updateicon);
 		//PageUtility pageutility=new PageUtility();
 		//pageutility.click(driver,updateicon);
+		return this;
 	}
-	public void clickUpdateButton()
+	public AdminUserPage clickUpdateButton()
 	{
 		WaitUtility wait=new WaitUtility();
 		wait.waitForElementToBeClickable(driver, updatebutton);
 		updatebutton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed()
 	{
