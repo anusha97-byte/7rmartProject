@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-<listeners>
-<listener class-name="generateReport.Listeners"></listener>
-</listeners>
-  <test thread-count="5" name="Test">
-  <parameter name="browser" value="chrome"></parameter>
-    <classes>
-      
-      <class name="testDataPackage.ManageNewsTest"/>
-      <class name="testDataPackage.AdminUserTest"/>
-      <class name="testDataPackage.LoginTest">
-      <methods>
-      <include name="loginWithValidCredentials"></include>
-      </methods>
-      </class>
-      <class name="testDataPackage.ManageFooterTextTest"/>
-      <class name="testDataPackage.ManageCategoryTest"/>
-      <class name="testDataPackage.LogoutTest"/>
-      <class name="testDataPackage.ManageContactTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<listeners>
+		<listener class-name="generateReport.Listeners"></listener>
+	</listeners>
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+
+			<class name="testDataPackage.ManageNewsTest" />
+			<class name="testDataPackage.AdminUserTest" />
+			<class name="testDataPackage.LoginTest">
+				<methods>
+					<include
+						name="verify_UserIs_AbleTo_LoginWithValidCredentials"></include>
+				</methods>
+			</class>
+			<class name="testDataPackage.ManageFooterTextTest" />
+			<class name="testDataPackage.ManageCategoryTest" />
+			<class name="testDataPackage.LogoutTest" />
+			<class name="testDataPackage.ManageContactTest" />
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

@@ -2,61 +2,69 @@ package testDataPackage;
 
 import java.io.IOException;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import constant.Constant;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class LoginTest extends Base
-{
-	@Test(priority=1,description="Login with Valid username and password")
-	public void Verify_UserIs_AbleTo_LoginWithValidCredentials() throws IOException
-	{
-		String user=ExcelUtility.getStringData(1,0,"LoginPage");
-		String pass=ExcelUtility.getStringData(1,1,"LoginPage");
-		LoginPage loginpage= new LoginPage(driver);
+public class LoginTest extends Base {
+	@Test(priority = 1, description = "Login with Valid username and password")
+	public void verify_UserIs_AbleTo_LoginWithValidCredentials() throws IOException {
+		String user = ExcelUtility.getStringData(1, 0, "LoginPage");
+		String pass = ExcelUtility.getStringData(1, 1, "LoginPage");
+		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsername(user);
 		loginpage.enterPassword(pass);
 		loginpage.clickSigninButton();
-		boolean isdashboarddisplayed =loginpage.isHomePageLoaded();
-		Assert.assertTrue(isdashboarddisplayed,"After entering valid username and password home page is not displayed");
+		boolean isdashboarddisplayed = loginpage.isHomePageLoaded();
+		Assert.assertTrue(isdashboarddisplayed, Constant.CORRECTUSERNAMEANDPASSWORD);
 	}
-	@Test(priority=2,description="Login with invalid credentials")
-	public void verify_UserIs_AbleTo_LoginWithInvalidCredentials() throws IOException
-	{
-		
-		String user=ExcelUtility.getStringData(2,0,"LoginPage");
-		String pass=ExcelUtility.getStringData(2,1,"LoginPage");
-		LoginPage loginpage=new LoginPage(driver);
+
+	@Test(priority = 2, description = "Login with invalid credentials")
+	public void verify_UserIs_AbleTo_LoginWithInvalidCredentials() throws IOException {
+
+		String user = ExcelUtility.getStringData(2, 0, "LoginPage");
+		String pass = ExcelUtility.getStringData(2, 1, "LoginPage");
+		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsername(user);
 		loginpage.enterPassword(pass);
 		loginpage.clickSigninButton();
-		boolean isAlertMessageDisplayed=loginpage.isAlertDisplayed();
-		Assert.assertTrue(isAlertMessageDisplayed,"After entering ivalid credentials the home page is displayed");
+		boolean isAlertMessageDisplayed = loginpage.isAlertDisplayed();
+		Assert.assertTrue(isAlertMessageDisplayed, Constant.INCORRECTUSERNAMEANDPASSWORD);
 	}
-	@Test(priority=3, description="Login with Valid username and invalid password")
-	public void verify_UserIs_AbleTo_loginWithUsernameValidAndPasswordInvalid() throws IOException
-	{
-		
-		String user=ExcelUtility.getStringData(3,0,"LoginPage");
-		String pass=ExcelUtility.getStringData(3,1,"LoginPage");
-		LoginPage loginpage=new LoginPage(driver);
+
+	@Test(priority = 3, description = "Login with Valid username and invalid password")
+	public void verify_UserIs_AbleTo_loginWithUsernameValidAndPasswordInvalid() throws IOException {
+
+		String user = ExcelUtility.getStringData(3, 0, "LoginPage");
+		String pass = ExcelUtility.getStringData(3, 1, "LoginPage");
+		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsername(user);
 		loginpage.enterPassword(pass);
 		loginpage.clickSigninButton();
-		boolean isAlertMessageDisplayed=loginpage.isAlertDisplayed();
-		Assert.assertTrue(isAlertMessageDisplayed,"After entering valid username and invalid password home page is displayed");
+		boolean isAlertMessageDisplayed = loginpage.isAlertDisplayed();
+		Assert.assertTrue(isAlertMessageDisplayed, Constant.CORRECTUSERNAMEANDINCORRECTPASSWORD);
 	}
-	@Test(priority=4,description="Login with valid password and invalid username")
-	public void verify_UserIs_AbleTo_LoginWithPasswordValidAndUsernameInvalid() throws IOException
-	{
-		
-		String user=ExcelUtility.getStringData(4,0,"LoginPage");
-		String pass=ExcelUtility.getStringData(4,1,"LoginPage");
-		LoginPage loginpage=new LoginPage(driver);
+
+	@Test(priority = 4, description = "Login with valid password and invalid username", dataProvider = "LoginProvider")
+	public void verify_UserIs_AbleTo_LoginWithPasswordValidAndUsernameInvalid(String user, String pass)
+			throws IOException {
+
+		// String user=ExcelUtility.getStringData(4,0,"LoginPage");
+		// String pass=ExcelUtility.getStringData(4,1,"LoginPage");
+		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsername(user);
 		loginpage.enterPassword(pass);
 		loginpage.clickSigninButton();
-		boolean isAlertMessageDisplayed=loginpage.isAlertDisplayed();
-		Assert.assertTrue(isAlertMessageDisplayed,"After entering valid password and invalid username home page is displayed");
+		boolean isAlertMessageDisplayed = loginpage.isAlertDisplayed();
+		Assert.assertTrue(isAlertMessageDisplayed, Constant.INCORRECTUSERNAMEANDCORRECTPASSWORD);
+	}
+
+	@DataProvider(name = "LoginProvider")
+	public Object[][] getDataFromTestData() throws IOException {
+		return new Object[][] {
+				{ ExcelUtility.getStringData(4, 0, "loginpage"), ExcelUtility.getStringData(4, 1, "loginpage") } };
 	}
 }

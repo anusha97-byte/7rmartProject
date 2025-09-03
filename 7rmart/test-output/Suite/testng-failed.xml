@@ -5,15 +5,30 @@
     <listener class-name="generateReport.Listeners"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="testDataPackage.ManageNewsTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_ManageTheNews"/>
+          <include name="verify_UserIs_AbleTo_UpdateTheNews"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageNewsTest -->
       <class name="testDataPackage.AdminUserTest">
         <methods>
           <include name="browserInitialization"/>
-          <include name="updateAdminUserInformation"/>
           <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_UpdateAdminUserInformation"/>
         </methods>
       </class> <!-- testDataPackage.AdminUserTest -->
+      <class name="testDataPackage.ManageCategoryTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_UpdateCategoryInManageCategory"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageCategoryTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

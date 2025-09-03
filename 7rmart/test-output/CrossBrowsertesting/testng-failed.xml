@@ -4,40 +4,115 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="testDataPackage.LoginTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_LoginWithValidCredentials"/>
+        </methods>
+      </class> <!-- testDataPackage.LoginTest -->
+      <class name="testDataPackage.ManageCategoryTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_AddCategoryInManageCategory"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_UpdateCategoryInManageCategory"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageCategoryTest -->
+      <class name="testDataPackage.LogoutTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_LogoutFromTheApplication"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.LogoutTest -->
       <class name="testDataPackage.AdminUserTest">
         <methods>
-          <include name="quitAndClose"/>
-          <include name="addAdminUserInformations"/>
           <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_User_IsAbleTo_AddAdminUserInformations"/>
+          <include name="verify_UserIs_AbleTo_UpdateAdminUserInformation"/>
         </methods>
       </class> <!-- testDataPackage.AdminUserTest -->
+      <class name="testDataPackage.ManageNewsTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_ManageTheNews"/>
+          <include name="verify_UserIs_AbleTo_UpdateTheNews"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageNewsTest -->
+      <class name="testDataPackage.ManageFooterTextTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="verify_User_Is_Able_ToUpdate_TheManageFooterText"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageFooterTextTest -->
+      <class name="testDataPackage.ManageContactTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_UpdateTheContact"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageContactTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
   <test thread-count="5" name="FirefoxTest(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="testDataPackage.ManageContactTest">
+      <class name="testDataPackage.LoginTest">
         <methods>
-          <include name="quitAndClose"/>
-          <include name="updateContact"/>
           <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_LoginWithValidCredentials"/>
         </methods>
-      </class> <!-- testDataPackage.ManageContactTest -->
-      <class name="testDataPackage.AdminUserTest">
-        <methods>
-          <include name="quitAndClose"/>
-          <include name="addAdminUserInformations"/>
-          <include name="browserInitialization"/>
-        </methods>
-      </class> <!-- testDataPackage.AdminUserTest -->
+      </class> <!-- testDataPackage.LoginTest -->
       <class name="testDataPackage.ManageCategoryTest">
         <methods>
-          <include name="quitAndClose"/>
-          <include name="addCategory"/>
-          <include name="updateCategory"/>
+          <include name="verify_UserIs_AbleTo_AddCategoryInManageCategory"/>
           <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_UpdateCategoryInManageCategory"/>
         </methods>
       </class> <!-- testDataPackage.ManageCategoryTest -->
+      <class name="testDataPackage.LogoutTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_LogoutFromTheApplication"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.LogoutTest -->
+      <class name="testDataPackage.AdminUserTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="verify_User_IsAbleTo_AddAdminUserInformations"/>
+          <include name="browserQuit"/>
+          <include name="verify_UserIs_AbleTo_UpdateAdminUserInformation"/>
+        </methods>
+      </class> <!-- testDataPackage.AdminUserTest -->
+      <class name="testDataPackage.ManageNewsTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_ManageTheNews"/>
+          <include name="verify_UserIs_AbleTo_UpdateTheNews"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageNewsTest -->
+      <class name="testDataPackage.ManageFooterTextTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+          <include name="verify_User_Is_Able_ToUpdate_TheManageFooterText"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageFooterTextTest -->
+      <class name="testDataPackage.ManageContactTest">
+        <methods>
+          <include name="verify_UserIs_AbleTo_UpdateTheContact"/>
+          <include name="browserInitialization"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testDataPackage.ManageContactTest -->
     </classes>
   </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [CrossBrowsertesting] -->
