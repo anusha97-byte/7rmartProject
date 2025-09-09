@@ -30,7 +30,7 @@ public class ManageCategoryPage {
 	WebElement save;
 	@FindBy(xpath = "//b[text()='Fatal error']")
 	WebElement errorpage;
-	@FindBy(xpath = "//a[contains(@href,'edit=2833&page_ad=1')]")
+	@FindBy(xpath = "(//a[contains(@href,'&page_ad=1')])[2]")
 	WebElement updateicon;
 	@FindBy(xpath = "//button[@name='update']")
 	WebElement updatebutton;

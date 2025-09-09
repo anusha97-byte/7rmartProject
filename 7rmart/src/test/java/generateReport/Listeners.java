@@ -14,7 +14,7 @@ import utilities.ExtendReportUtility;
 public class Listeners implements ITestListener {
 	ExtentTest test;
 
-	ExtentReports extent = ExtendReportUtility.createExtentReports();
+	ExtentReports extent = ExtendReportUtility.createExtentReports();//customized reports
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
 	public void onTestStart(ITestResult result) {
